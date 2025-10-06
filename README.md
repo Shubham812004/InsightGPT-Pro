@@ -106,7 +106,7 @@ To run this project locally, follow these steps:
 ## 📸 Application Screenshots
 
 <p align="center">
-  <img src="login.png" width="400" alt="Login Interface">
-  <img src="chat1.png" width="400" alt="Chat Interface">
-  <img src="chat2.png" width="400" alt="Chat Interface">
+  <img src="login.png" width="90%" alt="Login Interface">
+  <br/> <br/> <img src="chat1.png" width="90%" alt="Chat Interface - Data Analysis">
+  <br/> <br/> <img src="chat2.png" width="90%" alt="Chat Interface - Report Generation">
 </p>
