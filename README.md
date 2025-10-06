@@ -105,8 +105,6 @@ To run this project locally, follow these steps:
 
 ## 📸 Application Screenshots
 
-*[Add 2-3 of your best screenshots here. Show the main chat interface with a chart, the sidebar with a document loaded, and the login page.]*
-
 <p align="center">
   <img src="login.png" width="400" alt="Login Interface">
   <img src="chat1.png" width="400" alt="Chat Interface">
