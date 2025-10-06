@@ -1,0 +1,50 @@
+# LLM & Frameworks
+langchain
+langchain-community
+langchain-openai
+langchain-google-genai
+langgraph
+openai
+
+# Backend & API
+fastapi
+uvicorn[standard]
+python-dotenv
+python-multipart
+
+# Data Handling
+pandas
+psycopg2-binary
+
+# RAG & Vector DB
+faiss-cpu
+#chromadb
+pypdf
+tiktoken
+
+# Authentication
+python-jose[cryptography]
+passlib==1.7.4
+bcrypt==3.2.0
+
+# Memory
+redis
+
+# Frontend
+streamlit
+requests
+
+# Reporting & Automation
+sendgrid
+reportlab
+kaleido
+plotly
+altair
+
+# MLOps
+mlflow
+langsmith
+
+# Embeddings
+sentence-transformers
+

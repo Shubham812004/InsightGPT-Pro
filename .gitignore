@@ -1,0 +1,23 @@
+# Environment variables
+.env
+
+# Python cache & virtual environment
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# Data files (we don't want to commit large datasets)
+data/
+*.csv
+*.xlsx
+*.db
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
