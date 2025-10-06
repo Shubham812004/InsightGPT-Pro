@@ -19,7 +19,7 @@ RUN chmod +x ./startup.sh
 
 # Expose the ports for the backend and frontend
 EXPOSE 8000
-EXPOSE 8501
+EXPOSE 7860
 
 # The command to run when the container starts
 CMD ["./startup.sh"]
