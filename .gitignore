@@ -1,23 +1,40 @@
 # Environment variables
+# Never commit your secret keys!
 .env
 
-# Python cache & virtual environment
+# Python artifacts
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Virtual Environments
+# Never commit your installed packages
 venv/
 .venv/
+env/
 
-# IDE files
+# Cache folders from libraries like sentence-transformers
+# This is the line that will fix your large upload issue
+.cache/
+
+# Databases and Indexes
+# Ignore generated files, but not the source data
+data/*.db
+data/faiss_index/
+
+# IDE and editor configuration
 .vscode/
 .idea/
 
-# Data files (we don't want to commit large datasets)
-data/
-*.csv
-*.xlsx
-*.db
+# OS-generated files
+.DS_Store
+Thumbs.db
 
-# Build artifacts
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Build and distribution artifacts
 dist/
 build/
-*.egg-info/

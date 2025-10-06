@@ -1,0 +1,9 @@
+OrderID,OrderDate,Region,Product,Units,SalePrice
+101,2025-01-15,North,Widget A,50,10.00
+102,2025-01-16,South,Widget B,30,25.50
+103,2025-02-01,North,Widget A,25,10.50
+104,2025-02-03,West,Widget C,120,5.75
+105,2025-02-10,South,,45,26.00
+106,2025-03-05,East,Widget B,80,27.00
+107,2025-03-12,West,Widget C,60,6.00
+108,2025-04-20,North,Widget A,-10,10.50
