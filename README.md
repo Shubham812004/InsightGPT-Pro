@@ -110,3 +110,13 @@ To run this project locally, follow these steps:
   <br/> <br/> <img src="chat1.png" width="90%" alt="Chat Interface - Data Analysis">
   <br/> <br/> <img src="chat2.png" width="90%" alt="Chat Interface - Report Generation">
 </p>
+
+## 📄 Sample Report
+
+InsightGPT Pro can synthesize an entire conversation, including generated charts, into a downloadable PDF. Click the image below to view a sample report.
+
+<p align="center">
+  <a href="report/InsightGPT_Report.pdf">
+    <img src="report.png" width="80%" alt="Sample PDF Report Preview">
+  </a>
+</p>
