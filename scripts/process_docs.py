@@ -3,7 +3,6 @@ import os
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-# --- CHANGED IMPORT ---
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
@@ -27,8 +26,6 @@ def main():
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
     docs = text_splitter.split_documents(documents)
 
-    # --- CHANGED EMBEDDING MODEL ---
-    # Use a free, local model from Hugging Face
     print("Loading local embedding model (will download if it's the first time)...")
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
