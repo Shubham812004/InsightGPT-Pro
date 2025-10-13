@@ -10,7 +10,6 @@ def get_user(db: Session, username: str) -> UserInDB | None:
     result = db.execute(query, {"username": username}).fetchone()
 
     if result:
-        # Correctly create the Pydantic model from the database row
         user_data = result._asdict()
         return UserInDB(**user_data)
     return None
@@ -26,9 +25,7 @@ def create_user(db: Session, user: UserCreate) -> UserInDB:
     db.execute(insert_query, {"username": user.username, "hashed_password": hashed_password})
     db.commit()
 
-    # We can be confident get_user now works correctly
     new_user = get_user(db, user.username)
     if not new_user:
-         # This should be virtually impossible if the commit succeeded
          raise Exception("Failed to retrieve user after creation.")
     return new_user
