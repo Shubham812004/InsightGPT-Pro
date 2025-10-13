@@ -6,18 +6,14 @@ from langchain.tools import Tool
 from langchain_community.utilities.sql_database import SQLDatabase
 from typing import TypedDict, Literal
 from langgraph.graph import StateGraph, END
-
-# --- ADD THESE MISSING IMPORTS ---
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.agents import AgentExecutor, create_tool_calling_agent
-# --- END OF ADDITIONS ---
-
 from app.services import rag_service
 from app.core.database import DATABASE_URL
 
 load_dotenv()
 
-# --- 1. Define Tools (No change here) ---
+# --- Define Tools (No change here) ---
 llm = ChatGoogleGenerativeAI(model="gemini-pro-latest", temperature=0, convert_system_message_to_human=True)
 db = SQLDatabase.from_uri(DATABASE_URL)
 sql_agent_executor = create_sql_agent(llm=llm, db=db, agent_type="openai-tools", verbose=False)
@@ -26,13 +22,13 @@ rag_tool = Tool(name="FinancialReportSearch", func=rag_service.query_rag, descri
 
 tools = [sql_tool, rag_tool]
 
-# --- 2. Define the Agent State (No change here) ---
+# --- Define the Agent State (No change here) ---
 class AgentState(TypedDict):
     input: str
     context: str
     result: str
 
-# --- 3. Define the Router (No change here) ---
+# --- Define the Router (No change here) ---
 def router(state: AgentState) -> Literal["sql_node", "rag_node"]:
     print("---ROUTER---")
     router_prompt = f"""Based on the user's question, decide which tool is the most appropriate to use.
@@ -53,7 +49,7 @@ def router(state: AgentState) -> Literal["sql_node", "rag_node"]:
         print("Routing to RAG node.")
         return "rag_node"
 
-# --- 4. Define Worker and Generation Nodes ---
+# --- Define Worker and Generation Nodes ---
 prompt = ChatPromptTemplate.from_messages([
     ("system", """
     You are a helpful data analyst assistant. You have access to a SQL database and a document search tool.
@@ -119,7 +115,7 @@ def generate_node(state: AgentState) -> dict:
     response = llm.invoke(prompt_text)
     return {"result": response.content}
 
-# --- 5. Build the Graph (No change here) ---
+# --- 5. Build the Graph ---
 workflow = StateGraph(AgentState)
 workflow.add_node("sql_node", sql_node)
 workflow.add_node("rag_node", rag_node)
@@ -131,7 +127,7 @@ workflow.add_edge("generate_node", END)
 agent_graph = workflow.compile()
 print("Upgraded multi-agent graph compiled successfully.")
 
-# --- 6. Main service functions (No change here) ---
+# --- 6. Main service functions ---
 def run_query(query: str):
     try:
         response = agent_graph.invoke({"input": query})
