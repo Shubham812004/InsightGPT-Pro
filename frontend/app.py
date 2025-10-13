@@ -142,8 +142,6 @@ def show_main_app():
         except requests.exceptions.RequestException: st.error("Connection error.")
 
     with st.sidebar:
-        # --- THIS IS THE FINAL STACKED LAYOUT ---
-        # Inside with st.sidebar:
         if st.session_state.is_guest:
             st.markdown("#### 👋 Welcome, **Guest**!")
         else:
@@ -155,7 +153,6 @@ def show_main_app():
             st.rerun()
         
         st.divider()
-        # --- END OF LAYOUT FIX ---
 
         st.button("➕ New Chat", on_click=start_new_chat, use_container_width=True)
 
