@@ -7,7 +7,6 @@ engine = create_engine(f'sqlite:///{DB_FILE_PATH}')
 
 def initialize_database():
     with engine.connect() as connection:
-        # Reverting to the original schema without the email column
         create_table_sql = text("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
